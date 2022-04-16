@@ -101,48 +101,31 @@ get_header();?>
                   </div>
                </div>
                <div class="row justify-content-center">
-                  <div class="col-lg-4 col-md-6 col-sm-6">
-                     <div class="service-item mb-5">
-                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/portfolio/1.jpg" alt="">
-                        <h4 class="mb-3">Web development.</h4>
-                        <p>A digital agency isn't here to replace your internal team, we're here to partner</p>
+
+               <?php
+                  $args = array(
+                     'post_type' => 'services',
+                     'posts_per_page' => 6
+                  );
+                  $query = new WP_Query($args);
+                  if($query->have_posts()) {
+                     while($query->have_posts()) {
+                        $query->the_post();
+                     ?>
+                     <div class="col-lg-4 col-md-6 col-sm-6">
+                        <div class="service-item mb-5">
+                           <img src="<?php echo get_the_post_thumbnail_url();?>" alt="">
+                           <h4 class="mb-3"><?php the_title();?></h4>
+                           <?php the_content();?>
+                        </div>
                      </div>
-                  </div>
-                  <div class="col-lg-4 col-md-6 col-sm-6">
-                     <div class="service-item mb-5">
-                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/portfolio/2.jpg" alt="">
-                        <h4 class="mb-3">Interface Design.</h4>
-                        <p>A digital agency isn't here to replace your internal team, we're here to partner</p>
-                     </div>
-                  </div>
-                  <div class="col-lg-4 col-md-6 col-sm-6">
-                     <div class="service-item mb-5">
-                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/portfolio/3.jpg" alt="">
-                        <h4 class="mb-3">Business Consulting.</h4>
-                        <p>A digital agency isn't here to replace your internal team, we're here to partner</p>
-                     </div>
-                  </div>
-                  <div class="col-lg-4 col-md-6 col-sm-6">
-                     <div class="service-item mb-5 mb-lg-0">
-                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/portfolio/4.jpg" alt="">
-                        <h4 class="mb-3">Branding.</h4>
-                        <p>A digital agency isn't here to replace your internal team, we're here to partner</p>
-                     </div>
-                  </div>
-                  <div class="col-lg-4 col-md-6 col-sm-6">
-                     <div class="service-item mb-5 mb-lg-0">
-                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/portfolio/5.jpg" alt="">
-                        <h4 class="mb-3">App development.</h4>
-                        <p>A digital agency isn't here to replace your internal team, we're here to partner</p>
-                     </div>
-                  </div>
-                  <div class="col-lg-4 col-md-6 col-sm-6">
-                     <div class="service-item mb-5 mb-lg-0">
-                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/portfolio/6.jpg" alt="">
-                        <h4 class="mb-3">Content creation.</h4>
-                        <p>A digital agency isn't here to replace your internal team, we're here to partner</p>
-                     </div>
-                  </div>
+                     <?php
+                     }
+                  } else {
+                     echo 'No Services Found';
+                  }
+                  wp_reset_postdata();
+               ?>
                </div>
             </div>
          </section>
@@ -164,62 +147,7 @@ get_header();?>
          </section>
          <!--  Section Cta End-->
          <!-- Section Testimonial Start -->
-         <section class="section testimonial">
-            <div class="container">
-               <div class="row">
-                  <div class="col-lg-7 ">
-                     <div class="section-title">
-                        <span class="h6 text-color">Clients testimonial</span>
-                        <h2 class="mt-3 content-title">Check what's our clients say about us</h2>
-                     </div>
-                  </div>
-               </div>
-            </div>
-            <div class="container">
-               <div class="row testimonial-wrap">
-                  <div class="testimonial-item position-relative">
-                     <i class="fa fa-quote-left text-color"></i>
-                     <div class="testimonial-item-content">
-                        <p class="testimonial-text">Quam maiores perspiciatis temporibus odio reiciendis error alias debitis atque consequuntur natus iusto recusandae numquam corrupti facilis blanditiis.</p>
-                        <div class="testimonial-author">
-                           <h5 class="mb-0 text-capitalize">Thomas Johnson</h5>
-                           <p>Excutive Director,themefisher</p>
-                        </div>
-                     </div>
-                  </div>
-                  <div class="testimonial-item position-relative">
-                     <i class="fa fa-quote-left text-color"></i>
-                     <div class="testimonial-item-content">
-                        <p class="testimonial-text">Consectetur adipisicing elit. Quam maiores perspiciatis temporibus odio reiciendis error alias debitis atque consequuntur natus iusto recusandae .</p>
-                        <div class="testimonial-author">
-                           <h5 class="mb-0 text-capitalize">Mickel hussy</h5>
-                           <p>Excutive Director,themefisher</p>
-                        </div>
-                     </div>
-                  </div>
-                  <div class="testimonial-item position-relative">
-                     <i class="fa fa-quote-left text-color"></i>
-                     <div class="testimonial-item-content">
-                        <p class="testimonial-text">Quam maiores perspiciatis temporibus odio reiciendis error alias debitis atque consequuntur natus iusto recusandae numquam corrupti.</p>
-                        <div class="testimonial-author">
-                           <h5 class="mb-0 text-capitalize">James Watson</h5>
-                           <p>Excutive Director,themefisher</p>
-                        </div>
-                     </div>
-                  </div>
-                  <div class="testimonial-item position-relative">
-                     <i class="fa fa-quote-left text-color"></i>
-                     <div class="testimonial-item-content">
-                        <p class="testimonial-text">Consectetur adipisicing elit. Quam maiores perspiciatis temporibus odio reiciendis error alias debitis atque consequuntur natus iusto recusandae .</p>
-                        <div class="testimonial-author">
-                           <h5 class="mb-0 text-capitalize">Mickel hussy</h5>
-                           <p>Excutive Director,themefisher</p>
-                        </div>
-                     </div>
-                  </div>
-               </div>
-            </div>
-         </section>
+         <?php get_template_part('template-parts/content', 'testimonials'); ?>
          <!-- Section Testimonial End -->
          <section class="section latest-blog bg-2">
             <div class="container">
@@ -232,48 +160,53 @@ get_header();?>
                   </div>
                </div>
                <div class="row justify-content-center">
-                  <div class="col-lg-4 col-md-6 mb-5">
-                     <div class="card bg-transparent border-0">
-                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/blog/1.jpg" alt="" class="img-fluid rounded">
-                        <div class="card-body mt-2">
-                           <div class="blog-item-meta">
-                              <a href="#" class="text-white-50">Design<span class="ml-2 mr-2">/</span></a>
-                              <a href="#"  class="text-white-50">Ui/Ux<span class="ml-2">/</span></a>
-                              <a href="#" class="text-white-50 ml-2"><i class="fa fa-user mr-2"></i>admin</a>
+
+
+               <?php
+                  $args = array(
+                     'post_type' => 'post',
+                     'posts_per_page' => 3
+                  );
+                  $query = new WP_Query($args); 
+
+                  if($query->have_posts()) {
+                     while($query->have_posts()) {
+                        $query->the_post();
+                        ?>
+                           <div class="col-lg-4 col-md-6 mb-5">
+                              <div class="card bg-transparent border-0">
+                                 <img src="<?php the_post_thumbnail_url();?>" alt="<?php the_title();?>" class="img-fluid rounded">
+                                 <div class="card-body mt-2">
+                                    <div class="blog-item-meta">
+                                       <a href="#" class="text-white-50"><?php echo get_the_date('D j, Y');?><span class="ml-2 mr-2">/</span></a>
+
+                                       <a href="#"  class="text-white-50">
+                                          <?php 
+                                             $cat = get_the_category();
+                                             echo $cat[0]->name; 
+                                          ?>
+                                             <span class="ml-2">/</span></a>
+
+                                       <a href="#" class="text-white-50 ml-2"><i class="fa fa-user mr-2"></i><?php 
+                                          $user = get_the_author_meta( 'ID' ); 
+                                          echo get_the_author_meta( 'display_name', $user );
+                                       ?></a>
+
+                                    </div>
+                                    <h3 class="mt-3 mb-5 lh-36"><a href="#" class="text-white "><?php the_title();?></a></h3>
+                                    <?php the_excerpt();?>
+                                    <a href="<?php the_permalink();?>" class="btn btn-small btn-solid-border btn-round-full text-white">Learn More</a>
+                                 </div>
+                              </div>
                            </div>
-                           <h3 class="mt-3 mb-5 lh-36"><a href="#" class="text-white ">How to improve design with typography?</a></h3>
-                           <a href="blog-single.html" class="btn btn-small btn-solid-border btn-round-full text-white">Learn More</a>
-                        </div>
-                     </div>
-                  </div>
-                  <div class="col-lg-4 col-md-6 mb-5">
-                     <div class="card border-0 bg-transparent">
-                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/blog/2.jpg" alt="" class="img-fluid rounded">
-                        <div class="card-body mt-2">
-                           <div class="blog-item-meta">
-                              <a href="#" class="text-white-50">Design<span class="ml-2 mr-2">/</span></a>
-                              <a href="#"  class="text-white-50">Ui/Ux<span class="ml-2">/</span></a>
-                              <a href="#" class="text-white-50 ml-2"><i class="fa fa-user mr-2"></i>admin</a>
-                           </div>
-                           <h3 class="mt-3 mb-5 lh-36"><a href="#" class="text-white">Interactivity design may connect consumer</a></h3>
-                           <a href="blog-single.html" class="btn btn-small btn-solid-border btn-round-full text-white">Learn More</a>
-                        </div>
-                     </div>
-                  </div>
-                  <div class="col-lg-4 col-md-6 mb-5">
-                     <div class="card border-0 bg-transparent">
-                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/blog/3.jpg" alt="" class="img-fluid rounded">
-                        <div class="card-body mt-2">
-                           <div class="blog-item-meta">
-                              <a href="#" class="text-white-50">Design<span class="ml-2 mr-2">/</span></a>
-                              <a href="#"  class="text-white-50">Ui/Ux<span class="ml-2">/</span></a>
-                              <a href="#" class="text-white-50 ml-2"><i class="fa fa-user mr-2"></i>admin</a>
-                           </div>
-                           <h3 class="mt-3 mb-5 lh-36"><a href="#" class="text-white">Marketing Strategy to bring more affect</a></h3>
-                           <a href="blog-single.html" class="btn btn-small btn-solid-border btn-round-full text-white">Learn More</a>
-                        </div>
-                     </div>
-                  </div>
+                        <?php
+                     }
+                  } else {
+                     echo 'No Post Found!';
+                  }
+                  wp_reset_postdata();
+               ?>
+
                </div>
             </div>
          </section>

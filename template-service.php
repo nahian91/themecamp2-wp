@@ -6,23 +6,7 @@ Template Name: Service
 
 get_header();?>
       <div class="main-wrapper ">
-         <section class="page-title bg-1">
-            <div class="container">
-               <div class="row">
-                  <div class="col-md-12">
-                     <div class="block text-center">
-                        <span class="text-white">Our services</span>
-                        <h1 class="text-capitalize mb-4 text-lg">What We Do</h1>
-                        <ul class="list-inline">
-                           <li class="list-inline-item"><a href="index.html" class="text-white">Home</a></li>
-                           <li class="list-inline-item"><span class="text-white">/</span></li>
-                           <li class="list-inline-item"><a href="#" class="text-white-50">Our services</a></li>
-                        </ul>
-                     </div>
-                  </div>
-               </div>
-            </div>
-         </section>
+         <?php get_template_part('template-parts/content', 'breadcumb'); ?>
          <!--  Section Services Start -->
          <section class="section service border-top">
             <div class="container">
