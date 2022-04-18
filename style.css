@@ -13,6 +13,10 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: megakit
 */
 
+
+img{
+	max-width: 100%;
+}
 /* Menu Fix */
 
 .main-menu {
@@ -20,4 +24,8 @@ Text Domain: megakit
 }
 .card-body p{
 	color: #fff;
+}
+.wp-block-page-list, .wp-block-categories {
+	padding: 0;
+	list-style: none;
 }

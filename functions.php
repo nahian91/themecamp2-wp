@@ -5,6 +5,8 @@ function megakit_assets() {
 
     load_theme_textdomain( 'megakit', get_template_directory() . '/languages' );
 
+    add_theme_support( 'title-tag' );
+
     add_theme_support('post-thumbnails', array('post', 'services'));
 
     register_nav_menus( array(
@@ -77,3 +79,49 @@ function megakit_css_js() {
 
 }
 add_action('wp_enqueue_scripts', 'megakit_css_js');
+
+
+function megakit_widgets() {
+
+    register_sidebar(array(
+        'name' => __('Footer 1', 'megakit'),
+        'id'   => 'footer-1',
+        'description'   => __( 'This Widget for Footer 1', 'megakit' ),
+        'before_widget' => '<ul id="%1$s" class="list-unstyled footer-menu lh-35">',
+        'after_widget'  => '</ul>',
+        'before_title'  => '<h4 class="text-capitalize mb-4">',
+        'after_title'   => '</h4>',
+    ));
+
+    register_sidebar(array(
+        'name' => __('Footer 2', 'megakit'),
+        'id'   => 'footer-2',
+        'description'   => __( 'This Widget for Footer 2', 'megakit' ),
+        'before_widget' => '<ul id="%1$s" class="list-unstyled footer-menu lh-35">',
+        'after_widget'  => '</ul>',
+        'before_title'  => '<h4 class="text-capitalize mb-4">',
+        'after_title'   => '</h4>',
+    ));
+
+    register_sidebar(array(
+        'name' => __('Footer 3', 'megakit'),
+        'id'   => 'footer-3',
+        'description'   => __( 'This Widget for Footer 3', 'megakit' ),
+        'before_widget' => '<ul id="%1$s" class="list-unstyled footer-menu lh-35">',
+        'after_widget'  => '</ul>',
+        'before_title'  => '<h4 class="text-capitalize mb-4">',
+        'after_title'   => '</h4>',
+    ));
+
+    register_sidebar(array(
+        'name' => __('Main Sidebar', 'megakit'),
+        'id'   => 'sidebar',
+        'description'   => __( 'This Widget for Main Sidebar', 'megakit' ),
+        'before_widget' => '<div id="%1$s" class="sidebar-widget card p-4 mb-3 border-0">',
+        'after_widget'  => '</div>',
+        'before_title'  => '<h4 class="text-capitalize mb-4">',
+        'after_title'   => '</h4>',
+    ));
+
+}
+add_action('widgets_init', 'megakit_widgets');
